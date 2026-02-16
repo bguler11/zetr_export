@@ -198,7 +198,13 @@ CLASS lhc_zetr_ddl_c_exp_invoice IMPLEMENTATION.
        INTO @DATA(lv_person).
 
 
-      SELECT SINGLE invoiceid FROM zetr_ddl_i_outgoing_invoices WHERE documentnumber EQ @ls_bill-billingdocument INTO @DATA(lv_invoiceid).
+      SELECT SINGLE invoiceid
+      FROM zetr_ddl_i_outgoing_invoices
+      WHERE ( Response = 'X' OR Response = '0' OR Response = '2' )
+      AND ( StatusCode IS NOT INITIAL OR StatusCode NE '2' )
+      AND  documentnumber EQ @ls_bill-billingdocument
+      INTO @DATA(lv_invoiceid).
+
     ENDIF.
 
     IF lt_customer_country IS NOT INITIAL.

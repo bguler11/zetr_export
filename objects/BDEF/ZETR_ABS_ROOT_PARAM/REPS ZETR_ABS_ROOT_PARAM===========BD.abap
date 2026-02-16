@@ -61,6 +61,7 @@ define behavior for ZETR_ABS_costing_header_fields
       supplier      = supplier;
       process       = process;
       document_type = document_type;
+      exchange_rate = exchange_rate;
     }
 
   association _Header;

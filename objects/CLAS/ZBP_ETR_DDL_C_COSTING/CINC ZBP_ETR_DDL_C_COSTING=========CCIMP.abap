@@ -70,7 +70,8 @@ CLASS lhc_zetr_ddl_c_costing IMPLEMENTATION.
                          company_code                   = ls_headers-company_code
                          tax_determination_date         = ls_headers-document_date
                          document_date                  = ls_headers-document_date
-                         posting_date                   = ls_headers-created_date ).
+                         posting_date                   = ls_headers-created_date
+                         exchange_rate                  = ls_headers-exchange_rate  ).
 
     APPEND VALUE #( reference_document_item              = 1
                     creditor                             = ls_headers-supplier
